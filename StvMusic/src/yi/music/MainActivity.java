@@ -2,10 +2,11 @@
 package yi.music;
 
 import yi.music.util.LogUtil;
+import yi.music.widget.MyFragmentTabHost;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTabHost;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -18,25 +19,28 @@ import android.widget.TextView;
 
 //@SuppressLint("InflateParams")
 //@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class MainActivity extends ActionBarActivity implements OnTabChangeListener, OnTouchListener {
+public class MainActivity extends ActionBarActivity implements OnTabChangeListener,OnTouchListener {
 
-    private FragmentTabHost mTabHost;
+    private MyFragmentTabHost mTabHost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LogUtil.d("MainActivity onCreate");
         setContentView(R.layout.activity_main);
+        
         initView();
     }
 
     private void initView() {
-        mTabHost = (FragmentTabHost) findViewById(R.id.tab_host);
+        
+        mTabHost = (MyFragmentTabHost) findViewById(R.id.tab_host);
         mTabHost.setup(this, getSupportFragmentManager(), R.id.tab_host);
         if (android.os.Build.VERSION.SDK_INT > 10) {
             mTabHost.getTabWidget().setShowDividers(0);
         }
         initTabs();
-        mTabHost.setCurrentTab(0);
+        mTabHost.setCurrentTab(1);
         mTabHost.setOnTabChangedListener(this);
     }
 
@@ -69,7 +73,7 @@ public class MainActivity extends ActionBarActivity implements OnTabChangeListen
             });
             mTabHost.addTab(tab, mainTab.getClz(), null);
 
-            mTabHost.getTabWidget().getChildAt(i).setOnTouchListener(this);
+             mTabHost.getTabWidget().getChildAt(i).setOnTouchListener(this);
         }
 
     }
@@ -91,6 +95,7 @@ public class MainActivity extends ActionBarActivity implements OnTabChangeListen
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        LogUtil.d("MainActivity onTouch event= " + event);
         boolean consumed = false;
         // use getTabHost().getCurrentTabView to decide if the current tab is
         // touched again
@@ -113,5 +118,6 @@ public class MainActivity extends ActionBarActivity implements OnTabChangeListen
         return getSupportFragmentManager().findFragmentByTag(
                 mTabHost.getCurrentTabTag());
     }
+
 
 }

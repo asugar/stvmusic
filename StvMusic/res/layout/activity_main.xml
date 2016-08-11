@@ -15,15 +15,14 @@
             android:id="@+id/real_tab_content"
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:layout_weight="1"
-            android:background="@color/gray" />
+            android:layout_weight="1" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dip" >
 
-            <android.support.v4.app.FragmentTabHost
+            <yi.music.widget.MyFragmentTabHost
                 android:id="@+id/tab_host"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -37,9 +36,13 @@
 
     <!-- 左侧侧滑菜单 -->
 
-    <ListView
+    <TextView
         android:id="@+id/navigation_drawer"
+        android:name="yi.music.NavigationDrawerFragment"
         android:layout_width="@dimen/navigation_drawer_width"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:text="this is drawerlayout"
+        android:layout_gravity="start"
+        tools:layout="@layout/fragment_navigation_drawer" />
 
 </android.support.v4.widget.DrawerLayout>
