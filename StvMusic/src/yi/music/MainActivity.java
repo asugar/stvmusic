@@ -35,12 +35,12 @@ public class MainActivity extends ActionBarActivity implements OnTabChangeListen
     private void initView() {
         
         mTabHost = (MyFragmentTabHost) findViewById(R.id.tab_host);
-        mTabHost.setup(this, getSupportFragmentManager(), R.id.tab_host);
+        mTabHost.setup(this, getSupportFragmentManager(), R.id.real_tab_content);
         if (android.os.Build.VERSION.SDK_INT > 10) {
             mTabHost.getTabWidget().setShowDividers(0);
         }
         initTabs();
-        mTabHost.setCurrentTab(1);
+        mTabHost.setCurrentTab(2);
         mTabHost.setOnTabChangedListener(this);
     }
 

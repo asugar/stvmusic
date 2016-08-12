@@ -1,17 +1,17 @@
 
 package yi.music;
 
-import android.support.v4.app.Fragment;
-
 public enum MainTab {
 
-    ME(0, R.string.mine_songs, R.drawable.ic_upward_mine, Fragment.class),
+    ME(1, R.string.mine_songs, R.drawable.ic_upward_mine, MineFragment.class),
 
-    DISCOVERY(0, R.string.discovery_songs, R.drawable.ic_upward_discovery, Fragment.class),
+    DISCOVERY(2, R.string.discovery_songs, R.drawable.ic_upward_discovery, DiscoveryFragment.class),
+    
+    MAIN(0, R.string.main_songs, R.drawable.e, MainFragment.class),
 
-    SEARCH(0, R.string.search_songs, R.drawable.ic_upward_search, Fragment.class),
+    SEARCH(3, R.string.search_songs, R.drawable.ic_upward_search, SearchFragment.class),
 
-    LOCAL(0, R.string.local_songs, R.drawable.ic_upward_local, Fragment.class);
+    LOCAL(4, R.string.local_songs, R.drawable.ic_upward_local, LocalFragment.class);
 
     private int index;
     private int resName;

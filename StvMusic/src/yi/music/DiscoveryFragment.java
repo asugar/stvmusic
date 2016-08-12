@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MineFragment extends Fragment {
+public class DiscoveryFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class MineFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         LogUtil.d("MineFragment onCreateView");
-        return inflater.inflate(R.layout.fragement_mine, null);
+        return inflater.inflate(R.layout.fragement_discovery, null);
     }
 
     @Override
